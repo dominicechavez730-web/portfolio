@@ -1,1 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- EDIT: Change the title shown in the browser tab -->
+    <title>Dominic V. Echavez | Graphic Artist</title>
+
+    <style>
+        /* =========================================================
+           PORTFOLIO WEBSITE - ALL CSS IS INSIDE THIS FILE
+           You can edit colors, fonts, spacing, and sizes here.
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #070b14;
+            --bg-secondary: #0d1322;
+            --card: rgba(18, 27, 48, 0.75);
+            --card-solid: #111a2d;
+            --primary: #4f7cff;
+            --primary-light: #7c9cff;
+            --text: #f5f7ff;
+            --muted: #9da8bd;
+            --border: rgba(124, 156, 255, 0.16);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(79, 124, 255, 0.13), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(110, 70, 255, 0.12), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 11, 20, 0.78);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 1.7rem;
+            cursor: pointer;
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 100px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading .small-title {
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: var(--muted);
+        }
+
+        .glass-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+        }
+
+        /* ================= HOME ================= */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 130px;
+            position: relative;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: var(--primary-light);
+            background: rgba(79, 124, 255, 0.1);
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: #cdd5e8;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 22px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4f7cff, #6549ff);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(79,124,255,0.3);
+        }
+
+        .btn-outline {
+            color: white;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-3px);
+        }
+
+        .hero-card {
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: var(--primary);
+            filter: blur(90px);
+            opacity: 0.25;
+            top: -80px;
+            right: -50px;
+        }
+
+        .profile-icon {
+            height: 260px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(135deg, rgba(79,124,255,0.2), rgba(104,70,255,0.08)),
+                #0d1425;
+            border: 1px solid var(--border);
+            font-size: 5rem;
+            color: var(--primary-light);
+        }
+
+        .hero-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .mini-info {
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+        }
+
+        .mini-info small {
+            display: block;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 30px;
+        }
+
+        .about-card {
+            padding: 35px;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .fact {
+            padding: 18px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+        }
+
+        .fact strong {
+            display: block;
+            color: var(--primary-light);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover,
+        .project-card:hover,
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(124,156,255,0.4);
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .skill-top span:last-child {
+            color: var(--primary-light);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #1a2438;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 80%;
+            background: linear-gradient(90deg, #4f7cff, #7458ff);
+            border-radius: 20px;
+        }
+
+        /* ================= EXPERIENCE / EDUCATION ================= */
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(124,156,255,0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 9px;
+            top: 7px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px rgba(79,124,255,0.1);
+        }
+
+        .timeline-card {
+            padding: 25px;
+        }
+
+        .timeline-card small {
+            color: var(--primary-light);
+        }
+
+        .timeline-card h3 {
+            margin: 5px 0;
+        }
+
+        .timeline-card p {
+            color: var(--muted);
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-image {
+            height: 210px;
+            background:
+                linear-gradient(135deg, rgba(79,124,255,0.3), rgba(92,63,255,0.15)),
+                #111a2d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            padding: 6px 9px;
+            background: rgba(79,124,255,0.1);
+            color: var(--primary-light);
+            border-radius: 7px;
+        }
+
+        /* ================= CERTIFICATIONS ================= */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .cert-card {
+            padding: 28px;
+            text-align: center;
+        }
+
+        .cert-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(79,124,255,0.1);
+            border-radius: 14px;
+            color: var(--primary-light);
+            font-size: 1.5rem;
+        }
+
+        .cert-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 25px;
+        }
+
+        .contact-info,
+        .contact-form {
+            padding: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            padding: 17px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(79,124,255,0.1);
+            border-radius: 10px;
+            color: var(--primary-light);
+        }
+
+        .contact-item small {
+            color: var(--muted);
+            display: block;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: white;
+            outline: none;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            color: var(--muted);
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .hero,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid,
+            .cert-grid,
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-card {
+                max-width: 600px;
+                margin: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                background: rgba(7,11,20,0.97);
+                flex-direction: column;
+                text-align: center;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .cert-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .facts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+         EDIT: Change navigation labels if needed.
+    ========================================================== -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">DOMINIC<span>.</span></a>
+
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                    ☰
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         HOME
+         EDIT: Change your name, title, introduction, location, etc.
+    ========================================================== -->
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+
+                <div>
+                    <span class="hero-tag">AVAILABLE FOR PROJECTS</span>
+
+                    <!-- EDIT: Your name -->
+                    <h1>Dominic <span>V.</span><br>Echavez</h1>
+
+                    <!-- EDIT: Your professional title -->
+                    <h2>Graphic Artist & Creative Designer</h2>
+
+                    <!-- EDIT: Your short introduction -->
+                    <p>
+                        Hard working and passionate about creating unique,
+                        modern, and eye-catching designs. I turn ideas into
+                        visual designs that help brands and businesses stand out.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Let's Work Together</a>
+                    </div>
+                </div>
+
+                <div class="glass-card hero-card">
+                    <!-- EDIT: You can replace this box with your own photo later -->
+                    <div class="profile-icon">DA</div>
+
+                    <div class="hero-info">
+                        <div class="mini-info">
+                            <small>Location</small>
+                            <strong>Cebu, Philippines</strong>
+                        </div>
+
+                        <div class="mini-info">
+                            <small>Specialty</small>
+                            <strong>Graphic Design</strong>
+                        </div>
+
+                        <div class="mini-info">
+                            <small>Status</small>
+                            <strong>Available</strong>
+                        </div>
+
+                        <div class="mini-info">
+                            <small>Experience</small>
+                            <strong>Graphic Artist</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================== -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">About Me</div>
+                <h2>Creative Mind. Hard Worker.</h2>
+                <p>
+                    A short introduction about my background, interests,
+                    and approach to design.
+                </p>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="glass-card about-card">
+                    <h3>Who I Am</h3>
+
+                    <!-- EDIT: About yourself -->
+                    <p>
+                        I am Dominic V. Echavez, a college student and graphic
+                        artist who enjoys creating designs and turning creative
+                        ideas into visual concepts.
+                    </p>
+
+                    <p>
+                        I am hard working, creative, and always willing to
+                        learn new skills. My goal is to create designs that
+                        look professional, clean, and memorable.
+                    </p>
+                </div>
+
+                <div class="glass-card about-card">
+                    <h3>Quick Facts</h3>
+
+                    <div class="facts">
+
+                        <div class="fact">
+                            <strong>Name</strong>
+                            Dominic V. Echavez
+                        </div>
+
+                        <div class="fact">
+                            <strong>Profession</strong>
+                            Graphic Artist
+                        </div>
+
+                        <div class="fact">
+                            <strong>Education</strong>
+                            College Student
+                        </div>
+
+                        <div class="fact">
+                            <strong>Location</strong>
+                            Cebu, Philippines
+                        </div>
+
+                        <div class="fact">
+                            <strong>Interest</strong>
+                            Graphic Design
+                        </div>
+
+                        <div class="fact">
+                            <strong>Goal</strong>
+                            Creative Professional
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         SKILLS
+         EDIT: Add or remove skills and change percentages.
+    ========================================================== -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">My Skills</div>
+                <h2>What I Can Do</h2>
+                <p>
+                    My current creative and design skills.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="glass-card skill-card">
+                    <div class="skill-top">
+                        <strong>Graphic Design</strong>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width:90%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div class="skill-top">
+                        <strong>Logo Design</strong>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width:85%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div class="skill-top">
+                        <strong>Clothing Design</strong>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width:85%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div class="skill-top">
+                        <strong>Photo Editing</strong>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width:80%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div class="skill-top">
+                        <strong>Layout Design</strong>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width:85%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div class="skill-top">
+                        <strong>Creative Design</strong>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width:90%"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         EXPERIENCE
+    ========================================================== -->
+    <section id="experience">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">Experience</div>
+                <h2>My Experience</h2>
+                <p>
+                    My creative experience and design journey.
+                </p>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="glass-card timeline-card">
+                        <!-- EDIT: Change date -->
+                        <small>GRAPHIC DESIGN EXPERIENCE</small>
+
+                        <!-- EDIT: Experience title -->
+                        <h3>Graphic Artist</h3>
+
+                        <!-- EDIT: Experience description -->
+                        <p>
+                            Graphic artist since day one, creating designs,
+                            layouts, branding concepts, clothing graphics,
+                            and other creative visual materials.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="glass-card timeline-card">
+                        <small>CREATIVE PROJECTS</small>
+
+                        <h3>Independent Designer</h3>
+
+                        <p>
+                            Working on personal design projects and developing
+                            creative concepts for clothing and digital graphics.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         PROJECTS
+         EDIT: Replace project names/descriptions with your real work.
+    ========================================================== -->
+    <section id="projects">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">Portfolio</div>
+                <h2>Featured Projects</h2>
+                <p>
+                    A selection of creative projects and design concepts.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="glass-card project-card">
+                    <div class="project-image">BSDK</div>
+
+                    <div class="project-content">
+                        <h3>BSDK Clothing</h3>
+
+                        <p>
+                            A streetwear clothing project focused on bold,
+                            clean, and modern visual identity.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Clothing</span>
+                            <span class="tag">Graphic Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="project-image">LOGO</div>
+
+                    <div class="project-content">
+                        <h3>Logo Design</h3>
+
+                        <p>
+                            Custom logo concepts designed for brands,
+                            organizations, and personal projects.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Logo</span>
+                            <span class="tag">Brand Identity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="project-image">DESIGN</div>
+
+                    <div class="project-content">
+                        <h3>Creative Graphics</h3>
+
+                        <p>
+                            Digital graphics, posters, layouts, and visual
+                            concepts created for different projects.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Poster</span>
+                            <span class="tag">Layout</span>
+                            <span class="tag">Editing</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         EDUCATION
+    ========================================================== -->
+    <section id="education">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">Education</div>
+                <h2>My Education</h2>
+                <p>
+                    My current educational background.
+                </p>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="glass-card timeline-card">
+                        <small>CURRENT</small>
+
+                        <!-- EDIT: Add your school and course -->
+                        <h3>College Student</h3>
+
+                        <p>
+                            Currently pursuing college education while
+                            developing skills in technology, design,
+                            creativity, and professional development.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         CERTIFICATIONS
+         EDIT: Replace these placeholders with your actual certificates.
+    ========================================================== -->
+    <section id="certifications">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">Certifications</div>
+                <h2>Certificates & Training</h2>
+                <p>
+                    Add your completed certificates, seminars, and training here.
+                </p>
+            </div>
+
+            <div class="cert-grid">
+
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">★</div>
+
+                    <!-- EDIT -->
+                    <h3>Graphic Design Certificate</h3>
+
+                    <!-- EDIT -->
+                    <p>Your Certification Provider</p>
+                </div>
+
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">✓</div>
+
+                    <!-- EDIT -->
+                    <h3>Design Training</h3>
+
+                    <!-- EDIT -->
+                    <p>Your Training Provider</p>
+                </div>
+
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">◆</div>
+
+                    <!-- EDIT -->
+                    <h3>Additional Certificate</h3>
+
+                    <!-- EDIT -->
+                    <p>Add your certification details</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         SERVICES
+         EDIT: Change these to the services you actually offer.
+    ========================================================== -->
+    <section id="services">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">Services</div>
+                <h2>What I Offer</h2>
+                <p>
+                    Creative services available for clients and businesses.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="glass-card service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Graphic Design</h3>
+                    <p>
+                        Creative graphics and visual designs made according
+                        to your brand or project needs.
+                    </p>
+                </div>
+
+                <div class="glass-card service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Logo Design</h3>
+                    <p>
+                        Clean and memorable logo concepts for businesses,
+                        organizations, and personal brands.
+                    </p>
+                </div>
+
+                <div class="glass-card service-card">
+                    <div class="service-icon">👕</div>
+                    <h3>Clothing Design</h3>
+                    <p>
+                        T-shirt and streetwear graphics for clothing brands
+                        and custom apparel.
+                    </p>
+                </div>
+
+                <div class="glass-card service-card">
+                    <div class="service-icon">🖼</div>
+                    <h3>Poster & Layout</h3>
+                    <p>
+                        Posters, social media graphics, presentations,
+                        layouts, and promotional materials.
+                    </p>
+                </div>
+
+                <div class="glass-card service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Photo Editing</h3>
+                    <p>
+                        Image cleanup, enhancement, background removal,
+                        and creative photo editing.
+                    </p>
+                </div>
+
+                <div class="glass-card service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Creative Concepts</h3>
+                    <p>
+                        Visual ideas and concepts that help turn your
+                        creative vision into a finished design.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+         EDIT: Replace email, location, LinkedIn and GitHub.
+    ========================================================== -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="small-title">Contact</div>
+                <h2>Let's Create Something</h2>
+                <p>
+                    Have a project or design idea? Get in touch with me.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="glass-card contact-info">
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+
+                        <div>
+                            <small>Email</small>
+
+                            <!-- EDIT: Your email -->
+                            <a href="mailto:dominicechavez730@gmail.com">
+                                dominicechavez730@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">⌖</div>
+
+                        <div>
+                            <small>Location</small>
+
+                            <!-- EDIT: Your location -->
+                            <strong>Cebu, Philippines</strong>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">in</div>
+
+                        <div>
+                            <small>LinkedIn</small>
+
+                            <!-- EDIT: Replace # with your LinkedIn URL -->
+                            <a href="#" target="_blank">
+                                LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">GH</div>
+
+                        <div>
+                            <small>GitHub</small>
+
+                            <!-- EDIT: Replace # with your GitHub URL -->
+                            <a href="#" target="_blank">
+                                GitHub Profile
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!--
+                    IMPORTANT:
+                    This form opens the user's email application.
+                    It does not require a server or external service.
+                -->
+                <div class="glass-card contact-form">
+
+                    <form id="contactForm">
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Your Name"
+                            required
+                        >
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Your Email"
+                            required
+                        >
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Subject"
+                            required
+                        >
+
+                        <textarea
+                            id="message"
+                            placeholder="Your Message"
+                            required
+                        ></textarea>
+
+                        <button type="submit" class="btn btn-primary">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer>
+
+        <div class="container">
+
+            <div class="social-links">
+
+                <!-- EDIT: Replace # with your actual links -->
+
+                <a href="#" target="_blank" aria-label="LinkedIn">
+                    in
+                </a>
+
+                <a href="#" target="_blank" aria-label="GitHub">
+                    GH
+                </a>
+
+                <a href="mailto:dominicechavez730@gmail.com" aria-label="Email">
+                    @
+                </a>
+
+            </div>
+
+            <!-- EDIT: Your name -->
+            <p>
+                © <span id="year"></span>
+                <strong>Dominic V. Echavez</strong>.
+                All Rights Reserved.
+            </p>
+
+            <p style="margin-top: 5px;">
+                Graphic Artist • Creative Designer
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         Everything below is vanilla JavaScript.
+    ========================================================== -->
+
+    <script>
+
+        /* ================= MOBILE MENU ================= */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+
+        /* Close mobile menu after clicking a navigation link */
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+            link.addEventListener("click", function() {
+                navLinks.classList.remove("active");
+            });
+        });
+
+
+        /* ================= CURRENT YEAR ================= */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* ================= CONTACT FORM ================= */
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            /*
+                EDIT:
+                This email address is where messages will be sent.
+            */
+
+            const receiver = "dominicechavez730@gmail.com";
+
+            const mailSubject =
+                encodeURIComponent(subject + " - Portfolio Contact");
+
+            const mailBody =
+                encodeURIComponent(
+                    "Name: " + name + "\n" +
+                    "Email: " + email + "\n\n" +
+                    "Message:\n" + message
+                );
+
+            window.location.href =
+                "mailto:" + receiver +
+                "?subject=" + mailSubject +
+                "&body=" + mailBody;
+        });
+
+
+        /* ================= SIMPLE SCROLL EFFECT ================= */
+
+        const cards = document.querySelectorAll(
+            ".glass-card"
+        );
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.08
+            }
+        );
+
+        cards.forEach(function(card) {
+
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition =
+                "opacity 0.6s ease, transform 0.6s ease";
+
+            observer.observe(card);
+
+        });
+
+    </script>
+
+</body>
+</html>
+
 
